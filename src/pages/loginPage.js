@@ -6,9 +6,7 @@ import PersonIcon from '@mui/icons-material/Person'
 import LockIcon from '@mui/icons-material/Lock'
 
 import Grid from "@mui/material/Grid"
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-
+import Card from '@mui/material/Card'
 
 export default function MyLogin() {
     return(
