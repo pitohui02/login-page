@@ -10,25 +10,61 @@ import LockIcon from '@mui/icons-material/Lock'
 import Grid from "@mui/material/Grid"
 import Card from '@mui/material/Card'
 
-import style from '../cssModules/LoginPage.module.css'
 
 
 
 class LoginPage extends Component {
     
-
-    
     render() {
+
+        const mainbox = {
+            height: '500px',
+            width: '500px' 
+        }
+
+        const cardstyle = {
+            paddingTop: '30px',
+            paddingBottom: '40px'
+        }
+
+        const typoFW = {
+            fontWeight: 'bold'
+        }
+
+        const boxTypo = {
+            marginBottom: '20px'
+        }
+
+        const boxTextField = {
+            
+            display: 'flex',
+            alignItems: 'center'
+        }
+
+        const iconstyle = {
+            paddingRight: '10px'
+        }
+
+        const buttonStyle = {
+            width: '32vh',
+            alignItems: 'center',
+            backgroundColor: '#495057',
+            color: '#e9ecef',
+            fontWeight: 'bold',
+            '&:hover': {
+                backgroundColor: '#343a40'
+            }
+        }
+
+
         return(
             <FormControl>
-                <Box className = {style.mainbox}>
-                    <Card className = {style.cardstyle}>
+                <Box sx = {mainbox}>
+                    <Card sx = {cardstyle}>
                         <CardContent>
         
-                        <Box sx = {{
-                            marginBottom: '20px'
-                        }}>
-                            <Typography variant="h4" sx = {{fontWeight: 'bold'}} >
+                        <Box sx = {boxTypo}>
+                            <Typography variant="h4" sx = {typoFW} >
                                 LOGIN PAGE
                             </Typography> 
                         </Box>
@@ -41,16 +77,16 @@ class LoginPage extends Component {
                         >
                         
                         <Grid item>
-                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                <PersonIcon fontSize="medium" color="black" className={style.iconstyle}/> 
+                            <Box sx={boxTextField}>
+                                <PersonIcon fontSize="medium" color="black" sx = {iconstyle}/> 
                                 <TextField id="outlined-basic" label="Username" variant="outlined" /> 
                             </Box>
                         </Grid>
                         
                         <Grid item>
                             <item>
-                            <Box  sx={{ display: 'flex', alignItems: 'center'}}> 
-                                <LockIcon fontSize="medium" color="black"  className={style.iconstyle}/> 
+                            <Box  sx={boxTextField}> 
+                                <LockIcon fontSize="medium" color="black"  sx = {iconstyle}/> 
                                 <TextField id="outlined-basic" label="Password" variant="outlined" type="password" /> 
                             </Box>
                             </item>
@@ -59,13 +95,7 @@ class LoginPage extends Component {
                     </Grid>
                         </CardContent>
         
-                        <Button variant="elevated" style = {{
-                            width: '32vh',
-                            alignItems: 'center',
-                            backgroundColor: '#495057',
-                            fontWeight: 'bold',
-                            color: '#e9ecef'
-                        }}> Log In</Button>
+                        <Button variant="elevated" style = {buttonStyle}>Log In</Button>
         
                     </Card>
     
