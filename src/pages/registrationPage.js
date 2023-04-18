@@ -156,9 +156,7 @@ class RegistrationPage extends Component {
                                                 <FormControlLabel value="false" control={<Radio />} label="Not Deceased" />
                                             </RadioGroup>
                                         </Box>
-
-
-                                    
+                                        
                                     </item>
 
 

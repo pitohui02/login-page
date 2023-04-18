@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react"
+import React, { Component} from "react"
 import { Box, CardContent, Typography } from "@mui/material"
 import { Button } from "@mui/material"
 import TextField from '@mui/material/TextField'
@@ -10,7 +10,6 @@ import LockIcon from '@mui/icons-material/Lock'
 import Grid from "@mui/material/Grid"
 import Card from '@mui/material/Card'
 
-import { useHistory } from 'react-router-dom';
 import Dashboard from './dashboard.js';
 
 
@@ -21,12 +20,13 @@ class LoginPage extends Component {
             username: '',
             password: '',
             userCredentials: new Map([['admin', '1234']]),
-            isLoggedIn: false,
+            isLoggedIn: false
         }
     }
 
     handleLogin = () => {
         const { username, password, userCredentials } = this.state;
+        
         if (userCredentials.get(username) === password) {
             this.setState({ isLoggedIn: true });
             
@@ -104,8 +104,14 @@ class LoginPage extends Component {
                         <Grid item>
                             <Box sx={boxTextField}>
                                 <PersonIcon fontSize="medium" color="black" sx = {iconstyle}/> 
-                                <TextField id="username" label="Username" variant="outlined" 
-                                    value={this.state.username} onChange={this.handleUsernameChange} /> 
+                                <TextField 
+                                    id="username" 
+                                    label="Username" 
+                                    variant="outlined" 
+                                    value={this.state.username} 
+                                    onChange={this.handleUsernameChange} 
+                                />
+
                             </Box>
                         </Grid>
                         
@@ -113,8 +119,14 @@ class LoginPage extends Component {
                             <item>
                             <Box  sx={boxTextField}> 
                                 <LockIcon fontSize="medium" color="black"  sx = {iconstyle}/> 
-                                <TextField id="password" label="Password" variant="outlined" type="password" 
-                                    value={this.state.password} onChange={this.handlePasswordChange} /> 
+                                <TextField 
+                                    id="password" 
+                                    label="Password" variant="outlined" 
+                                    type="password" 
+                                    value={this.state.password} 
+                                    onChange={this.handlePasswordChange} 
+                                /> 
+
                             </Box>
                             </item>
                         </Grid>

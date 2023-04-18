@@ -1,9 +1,7 @@
 import React, { Component } from "react"
 import { Typography } from "@mui/material"
 import  FormControl  from "@mui/material/FormControl"
-import Grid from "@mui/material/Grid"
 import { Button } from "@mui/material"
-import TextField from '@mui/material/TextField'
 import LoginPage from "./loginPage"
 
 class Dashboard extends Component {
@@ -36,10 +34,12 @@ class Dashboard extends Component {
             <FormControl>
                 <Typography variant = "h2">Dashboard</Typography>
                 <Button 
-                 variant="elevated" 
-                 style = {buttonStyle}
-                onClick = {this.handleLogout}
-                   type = "submit">Log Out</Button>
+                    variant="elevated" 
+                    style = {buttonStyle}
+                    onClick = {this.handleLogout}
+                    type = "submit">
+                    Log Out
+                </Button>
             </FormControl>
 
         )
