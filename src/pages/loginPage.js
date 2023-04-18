@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, useState } from "react"
 import { Box, CardContent, Typography } from "@mui/material"
 import { Button } from "@mui/material"
 import TextField from '@mui/material/TextField'
@@ -10,41 +10,67 @@ import LockIcon from '@mui/icons-material/Lock'
 import Grid from "@mui/material/Grid"
 import Card from '@mui/material/Card'
 
-
+import { useHistory } from 'react-router-dom';
+import Dashboard from './dashboard.js';
 
 
 class LoginPage extends Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            userCredentials: new Map([['admin', '1234']]),
+            isLoggedIn: false,
+        }
+    }
+
+    handleLogin = () => {
+        const { username, password, userCredentials } = this.state;
+        if (userCredentials.get(username) === password) {
+            this.setState({ isLoggedIn: true });
+            
+        } else {
+            alert('Invalid username or password');
+        }
+    }
+
+    handleUsernameChange = (event) => {
+        this.setState({ username: event.target.value });
+    }
+
+    handlePasswordChange = (event) => {
+        this.setState({ password: event.target.value });
+    }
+
     render() {
+        const { isLoggedIn } = this.state;
+
+        if (isLoggedIn) {
+            return <Dashboard />;
+        }
 
         const mainbox = {
             height: '500px',
             width: '500px' 
         }
-
         const cardstyle = {
             paddingTop: '30px',
             paddingBottom: '40px'
         }
-
         const typoFW = {
             fontWeight: 'bold'
         }
-
         const boxTypo = {
             marginBottom: '20px'
         }
-
         const boxTextField = {
-            
             display: 'flex',
             alignItems: 'center'
         }
-
         const iconstyle = {
             paddingRight: '10px'
         }
-
         const buttonStyle = {
             width: '32vh',
             alignItems: 'center',
@@ -52,10 +78,9 @@ class LoginPage extends Component {
             color: '#e9ecef',
             fontWeight: 'bold',
             '&:hover': {
-                backgroundColor: '#343a40'
+            backgroundColor: '#343a40'
             }
         }
-
 
         return(
             <FormControl>
@@ -79,7 +104,8 @@ class LoginPage extends Component {
                         <Grid item>
                             <Box sx={boxTextField}>
                                 <PersonIcon fontSize="medium" color="black" sx = {iconstyle}/> 
-                                <TextField id="outlined-basic" label="Username" variant="outlined" /> 
+                                <TextField id="username" label="Username" variant="outlined" 
+                                    value={this.state.username} onChange={this.handleUsernameChange} /> 
                             </Box>
                         </Grid>
                         
@@ -87,15 +113,20 @@ class LoginPage extends Component {
                             <item>
                             <Box  sx={boxTextField}> 
                                 <LockIcon fontSize="medium" color="black"  sx = {iconstyle}/> 
-                                <TextField id="outlined-basic" label="Password" variant="outlined" type="password" /> 
+                                <TextField id="password" label="Password" variant="outlined" type="password" 
+                                    value={this.state.password} onChange={this.handlePasswordChange} /> 
                             </Box>
                             </item>
                         </Grid>
         
                     </Grid>
                         </CardContent>
-        
-                        <Button variant="elevated" style = {buttonStyle}>Log In</Button>
+                        
+                        <Button 
+                        variant="elevated" 
+                        style = {buttonStyle}
+                        onClick = {this.handleLogin}
+                        type = "submit">Log In</Button>
         
                     </Card>
     
@@ -107,10 +138,3 @@ class LoginPage extends Component {
 }
 
 export default LoginPage
-
-
-
-
-
-
-
