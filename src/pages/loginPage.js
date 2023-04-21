@@ -10,7 +10,7 @@ import LockIcon from '@mui/icons-material/Lock'
 import Grid from "@mui/material/Grid"
 import Card from '@mui/material/Card'
 
-import Dashboard from './dashboard.js';
+import { Navigate } from "react-router-dom"
 
 
 class LoginPage extends Component {
@@ -45,9 +45,10 @@ class LoginPage extends Component {
 
     render() {
         const { isLoggedIn } = this.state;
+        
 
         if (isLoggedIn) {
-            return <Dashboard />;
+            return <Navigate to = '/dashboard'/>
         }
 
         const mainbox = {
