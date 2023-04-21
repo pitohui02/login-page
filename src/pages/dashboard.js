@@ -1,21 +1,31 @@
-import React, { Component } from "react"
+import React from 'react'
 
+import { Component } from 'react'
 
-import Drawer from '../components/drawer'
+import { Box } from '@mui/material'
+
+import DrawerComponent from '../components/drawer'
+import TableComponent from '../components/table'
 
 class Dashboard extends Component {  
     render() {
         return(
-            
-            <Drawer />
+           
+            <React.Fragment>
 
+                <Box>
+
+                <DrawerComponent />
+
+                <TableComponent />
+
+                </Box>
+
+            </React.Fragment>
+            
         )
     }
 }
-
-
-
-
 
 
 export default Dashboard
