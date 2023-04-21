@@ -1,19 +1,21 @@
 import React, { Component } from "react"
-import { Typography } from "@mui/material"
 
-class Dashboard extends Component {
 
+import Drawer from '../components/drawer'
+
+class Dashboard extends Component {  
     render() {
         return(
-
-            <Typography variant = "h2">Dashboard</Typography>
-
+            
+            <Drawer />
 
         )
     }
-
-
 }
+
+
+
+
 
 
 export default Dashboard

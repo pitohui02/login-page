@@ -15,9 +15,10 @@ function App() {
       
       <Route path='/' Component={LoginPage} />
 
-      <Route path='/registration' Component={RegistrationPage} />
+      <Route path='registration' Component={RegistrationPage} />
 
-      <Route path = '/dashboard' Component={Dashboard} />
+      <Route path = 'dashboard' Component={Dashboard} />
+      
 
       </Routes>
     </div>
