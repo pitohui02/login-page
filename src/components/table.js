@@ -17,6 +17,12 @@ class TableComponent extends Component {
             maxHeight: '700px'
         }
 
+        const photoDesign = {
+            width: '50px',
+            height: '50px'
+        }
+
+
         return (
 
             <TableContainer component = {Paper} sx = {trDesign}>
@@ -28,6 +34,7 @@ class TableComponent extends Component {
                         <TableRow>
 
                             <TableCell sx = {thDesign}>ID</TableCell>
+                            <TableCell sx = {thDesign}>Photo ID</TableCell>
                             <TableCell sx = {thDesign}>First Name</TableCell>
                             <TableCell sx = {thDesign}>Middle Name</TableCell>
                             <TableCell sx = {thDesign}>Last Name</TableCell>
@@ -49,6 +56,7 @@ class TableComponent extends Component {
                             <TableRow key ={row.id}>
 
                                 <TableCell>{row.id}</TableCell>
+                                <TableCell sx = {photoDesign}><img src={row.profilePhoto} alt = 'placeholder'></img></TableCell>
                                 <TableCell>{row.firstName}</TableCell>
                                 <TableCell>{row.middleName}</TableCell>
                                 <TableCell>{row.lastName}</TableCell>
